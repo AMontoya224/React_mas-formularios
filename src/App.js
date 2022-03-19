@@ -1,23 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
+import UserForm from './Componentes/UserForm/UserForm';
+import React, { useState } from  'react';
+
 
 function App() {
+  const [iconTheme, setIconTheme] = useState(false);
+  const changeTheme = () => {
+    document.body.classList.toggle('dark-theme-variables');
+    setIconTheme(!iconTheme);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"></link>
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"></link>
+      <h1>
+        Form with Hooks
+      </h1>
+      <span className='material-icons theme-toggler' onClick={changeTheme}>{iconTheme ? "light_mode" : "dark_mode"}</span>
+      <UserForm />
     </div>
   );
 }
